@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+//declaring a package grret
+package greet;
+
+//go_package for imports
+option go_package="github.com/Durotimicodes/grpc-go/greet/proto";
+
+//create two messages 1st a greer request and 2nd a greet response
+message GreetRequest {
+  string first_name = 1;
+}
+
+message GreetResponse {
+  string result = 1;
+}
+
+//declare and a greet service that takes in a greet request and returns a greet response
+service GreetService{
+  rpc Greet(GreetRequest) returns (GreetResponse);
+}
